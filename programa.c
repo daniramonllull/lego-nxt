@@ -1,10 +1,12 @@
-void mover_tiempo (int tiempo, int velocidad, char sentido)
+void mover_tiempo (int tiempo, int velocidad, char sentido);
+void darvueltas(int tiempo, int velocidad, char sentido);
 
 
 task main(){
 
-    mover_tiempo(1000,75,'D');
-    mover_tiempo(1000,75,'A');
+    //mover_tiempo(1000,75,'D');
+    //mover_tiempo(1000,75,'A');
+    darvueltas(2000,75,'H');
 
 }
 
@@ -17,6 +19,14 @@ void mover_tiempo (int tiempo, int velocidad, char sentido){
     else {
         OnRev(OUT_BC,velocidad);
     }
-    wait(tiempo);
+    Wait(tiempo);
+
+}
+
+void darvueltas(int tiempo, int velocidad, char sentido) {
+
+    OnFwd(OUT_C,velocidad);
+    OnRev(OUT_B,velocidad);
+    Wait(tiempo);
 
 }
